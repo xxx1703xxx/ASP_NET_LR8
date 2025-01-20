@@ -1,0 +1,36 @@
+﻿@model IEnumerable<lr8.Models.Product>
+
+<h2>Список продуктів</h2>
+<ul style="list-style-type: none; padding-left: 0;">
+    @foreach (var product in Model)
+    {
+        <li style="padding: 8px 0; font-size: 1.1em;">
+            <strong>@product.ID</strong>. @product.Name -
+            <span style="color: green;">$@product.Price</span>
+            <small>(@product.CreatedDate.ToString("dd MMM yyyy"))</small>
+        </li>
+    }
+</ul>
+
+<h2>Таблиця продуктів</h2>
+<table style="width: 100%; border-collapse: collapse;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th style="border: 1px solid #ddd; padding: 8px;">ID</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Name</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Price</th>
+            <th style="border: 1px solid #ddd; padding: 8px;">Created Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr style="text-align: center;">
+                <td style="border: 1px solid #ddd; padding: 8px;">@product.ID</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">@product.Name</td>
+                <td style="border: 1px solid #ddd; padding: 8px; color: green;">$@product.Price</td>
+                <td style="border: 1px solid #ddd; padding: 8px;">@product.CreatedDate.ToString("dd MMM yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
